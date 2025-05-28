@@ -8,6 +8,7 @@ import {
   Image,
   Text,
 } from "react-native";
+import CustomBtn from "./UI/CustomBtn";
 
 export default function CustomModal({
   isModalVisible,
@@ -20,8 +21,6 @@ export default function CustomModal({
     <Modal visible={isModalVisible} animationType='slide'>
       <KeyboardAvoidingView style={styles.keybordView} behavior='height'>
         <View style={styles.modalView}>
-          {/* <Image style={styles.image} source={require("./assets/boy.png")} /> */}
-
           <Image
             style={styles.image}
             source={{
@@ -35,20 +34,10 @@ export default function CustomModal({
           />
 
           <View style={styles.modalBtnContainer}>
-            <TouchableOpacity
-              activeOpacity={0.9}
-              style={styles.createBtn}
-              onPress={onCreateItem}>
-              <Text style={styles.btnText}>Créer</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.9}
-              style={styles.closeBtn}
-              onPress={onPressBtn}>
-              <Text style={styles.btnText}>Fermer</Text>
-            </TouchableOpacity>
+            <CustomBtn text='Créer' onPressAction={onCreateItem} color='red' />
+            <CustomBtn text='Fermer' onPressAction={onPressBtn} color='blue' />
           </View>
+
         </View>
       </KeyboardAvoidingView>
     </Modal>
@@ -70,6 +59,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
+    paddingHorizontal: 20,
+    marginTop: 20,
   },
   input: {
     width: "100%",
@@ -105,6 +96,7 @@ const styles = StyleSheet.create({
     height: 260,
     borderRadius: 12,
     marginBottom: 40,
+    marginTop: 500,
   },
   modalBtnText: {
     color: "white",
