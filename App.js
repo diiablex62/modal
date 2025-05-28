@@ -16,7 +16,11 @@ export default function App() {
   const [inputValue, setInputValue] = useState("");
   const [inputResult, setInputResult] = useState([]);
 
-  const onCreateItem = () => {};
+  const onCreateItem = () => {
+    setInputResult((current) => [...current, inputValue]);
+    setInputValue("");
+   
+  };
 
   const onPressBtn = () => {
     setModalVisible(!isModalVisible);
